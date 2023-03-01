@@ -8,6 +8,10 @@ CREATE TABLE animals (
     weight_kg Decimal
 )
 
+
+ALTER TABLE animals
+ADD species VARCHAR(255);
+
 CREATE TABLE owner (
     id smallserial PRIMARY KEY,
     full_name VARCHAR(100),
@@ -38,4 +42,5 @@ ALTER TABLE animals
 
 ALTER TABLE animals
     ADD FOREIGN KEY (species) REFERENCES species(name);
+
 
