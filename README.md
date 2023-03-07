@@ -1,4 +1,3 @@
-
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -24,6 +23,10 @@
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 [VET_CLINIC_DATABASE] <a name="about-project"></a>
+
+## DATABASE DIAGRAM
+
+![vet_clinic_diagram](./vet_clinic.JPG)
 
 **[VET_CLINIC_DATABASE]** is a database for a vet_clinic which has a table for animals
 
