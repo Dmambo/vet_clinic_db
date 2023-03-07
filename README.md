@@ -5,7 +5,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -78,6 +77,10 @@ no deployment
 - GitHub: [@Dmambo](https://github.com/Dmambo)
 - Twitter: [@kingibro345](https://twitter.com/kingibro345)
 - LinkedIn: [Dmambo](https://linkedin.com/in/Dmambo)
+
+👤 **Author2**
+- GitHub: [@Fahim-Khan-P](https://github.com/Fahim-Khan-P/)
+- LinkedIn: [Fahim Khan](https://www.linkedin.com/in/fahimkhan-p/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
