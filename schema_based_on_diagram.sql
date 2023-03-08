@@ -9,10 +9,10 @@ CREATE TABLE patients (
 -- invoice table
 
 CREATE TABLE invoices (
-    id serial PRIMARY KEY,
-    total_amount DECIMAL,
-    generated_at TIMESTAMP
-    visit_date DATE,
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    total_amount DECIMAL(10, 2),
+    generate_at TIMESTAMP,
+    payed_at TIMESTAMP,
     medical_history_id INT REFERENCES medical_histories(id)
 );
 
