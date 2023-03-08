@@ -66,4 +66,20 @@ CREATE TABLE invoice_item_treatment (
 );
 
 
+-- index on all the foreign keys
+
+CREATE INDEX ON invoices (medical_history_id);
+CREATE INDEX ON invoice_items (invoice_id);
+CREATE INDEX ON invoice_items (treatment_id);
+CREATE INDEX ON treatments (medical_history_id);
+CREATE INDEX ON patient_invoice (patient_id);
+CREATE INDEX ON patient_invoice (invoice_id);
+CREATE INDEX ON medical_history_treatment (medical_history_id);
+CREATE INDEX ON medical_history_treatment (treatment_id);
+CREATE INDEX ON invoice_item_treatment (invoice_item_id);
+CREATE INDEX ON invoice_item_treatment (treatment_id);
+
+
+
+
 
