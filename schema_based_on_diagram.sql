@@ -41,8 +41,7 @@ CREATE TABLE invoice_items (
 CREATE TABLE treatments (
     id serial PRIMARY KEY,
     type VARCHAR(100),
-    name VARCHAR(100),
-    medical_history_id INT REFERENCES medical_histories(id)
+    name VARCHAR(100)
 );
 
 -- many to many relationship
