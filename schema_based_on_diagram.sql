@@ -45,3 +45,11 @@ CREATE TABLE invoice_items (
     invoice_id INT REFERENCES invoices(id),
     treatment_id INT REFERENCES treatments(id)
 );
+
+-- FK indexes
+CREATE INDEX ON medical_histories (patient_id);
+CREATE INDEX ON invoices (medical_history_id);
+CREATE INDEX ON invoice_items (invoice_id);
+CREATE INDEX ON invoice_items (treatment_id);
+CREATE INDEX ON medical_history_treatments (medical_history_id);
+CREATE INDEX ON medical_history_treatments (treatment_id);
