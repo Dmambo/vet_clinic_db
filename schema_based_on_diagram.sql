@@ -1,13 +1,11 @@
 
 CREATE TABLE patients (
-    id serial PRIMARY KEY,
-    name VARCHAR(100),
-    date_of_birth DATE,
-
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(50),
+    date_of_birth DATE
 );
-
--- invoice table
-
+ 
+--  invoices table
 CREATE TABLE invoices (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     total_amount DECIMAL(10, 2),
@@ -16,69 +14,34 @@ CREATE TABLE invoices (
     medical_history_id INT REFERENCES medical_histories(id)
 );
 
--- MEDICAL_HISTORY
-
+-- medical_histories
 CREATE TABLE medical_histories (
-    id serial PRIMARY KEY,
-    admitted_at TIMESTAMP,
-    status VARCHAR(100),
-    patient_id INT REFERENCES patients(id)
-);
-
--- invoice_items table
-
-CREATE TABLE invoice_items (
-    id serial PRIMARY KEY,
-    unit_price DECIMAL,
-    quantity INT,
-    total_price DECIMAL,
-    invoice_id INT REFERENCES invoices(id),
-    treatment_id INT REFERENCES treatments(id)
-);
-
--- treatment table
-
-CREATE TABLE treatments (
-    id serial PRIMARY KEY,
-    type VARCHAR(100),
-    name VARCHAR(100)
-);
-
--- many to many relationship
-
-CREATE TABLE patient_invoice (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     patient_id INT REFERENCES patients(id),
-    invoice_id INT REFERENCES invoices(id),
-    PRIMARY KEY (patient_id, invoice_id)
+    status VARCHAR(50),
+    admitted_at TIMESTAMP,
 );
 
-CREATE TABLE medical_history_treatment (
+-- treatments
+CREATE TABLE treatments (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(50),
+    type VARCHAR(50)
+);
+
+--  medical_history_treatments
+CREATE TABLE medical_history_treatments (
     medical_history_id INT REFERENCES medical_histories(id),
     treatment_id INT REFERENCES treatments(id),
     PRIMARY KEY (medical_history_id, treatment_id)
 );
 
-CREATE TABLE invoice_item_treatment (
-    invoice_item_id INT REFERENCES invoice_items(id),
-    treatment_id INT REFERENCES treatments(id),
-    PRIMARY KEY (invoice_item_id, treatment_id)
+--  medical_history_treatments
+CREATE TABLE invoice_items (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    unit_price DECIMAL(10, 2),
+    quantity INT,
+    total_price DECIMAL(10, 2),
+    invoice_id INT REFERENCES invoices(id),
+    treatment_id INT REFERENCES treatments(id)
 );
-
-
--- index on all the foreign keys
-
-CREATE INDEX ON invoices (medical_history_id);
-CREATE INDEX ON invoice_items (invoice_id);
-CREATE INDEX ON invoice_items (treatment_id);
-CREATE INDEX ON treatments (medical_history_id);
-CREATE INDEX ON patient_invoice (patient_id);
-CREATE INDEX ON patient_invoice (invoice_id);
-CREATE INDEX ON medical_history_treatment (medical_history_id);
-CREATE INDEX ON medical_history_treatment (treatment_id);
-CREATE INDEX ON invoice_item_treatment (invoice_item_id);
-CREATE INDEX ON invoice_item_treatment (treatment_id);
-
-
-
-
-
